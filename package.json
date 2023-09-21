@@ -1,0 +1,14 @@
+{
+  "name": "bm_sf_oms_alerts",
+  "version": "1.0.0",
+  "description": "bm_sf_oms_alerts provides a job which alerts by email when orders are being rejected by Salesforce Order Management",
+  "main": "index.js",
+  "scripts": {
+    "lint": "sgmf-scripts --lint js && sgmf-scripts --lint css"
+  },
+  "devDependencies": {
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb-base": "^5.0.1",
+    "eslint-plugin-import": "^1.12.0"
+  }
+}

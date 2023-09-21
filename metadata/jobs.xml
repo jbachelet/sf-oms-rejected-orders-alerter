@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs xmlns="http://www.demandware.com/xml/impex/jobs/2015-07-01">
+
+    <job job-id="OMS - Alert on Rejected Orders" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="Alert on Rejected Orders" type="custom.SFOMSAlerts.RejectedOrders" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="DescriptorID">SOMRejectAlert</parameter>
+                    <parameter name="EmailFrom">noreply@salesforce.com</parameter>
+                    <parameter name="EmailSubject">Salesforce Order Management Injestion - Order(s) rejected</parameter>
+                    <parameter name="DeleteAlerts">true</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2023-09-18Z</date>
+                <time>09:47:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+</jobs>

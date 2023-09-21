@@ -1,0 +1,66 @@
+{
+    "step-types": {
+        "script-module-step": [{
+            "@type-id": "custom.SFOMSAlerts.RejectedOrders",
+            "@supports-parallel-execution": "true",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Alerts on rejected orders sent to Salesforce Order Management",
+            "module": "bm_sf_oms_alerts/cartridge/scripts/jobs/rejectedOrders.js",
+            "function": "execute",
+            "transactional": "false",
+            "parameters": {
+                "parameter": [{
+                    "@name": "IsDisabled",
+                    "description": "Mark the step as disabled. This will skip the step and returns a OK status",
+                    "@type": "boolean",
+                    "@required": "false",
+                    "@trim": "true"
+                }, {
+                    "@name": "DescriptorID",
+                    "@type": "string",
+                    "@required": "true",
+                    "@trim": "true",
+                    "description": "Alert descriptor to use to identify alerts. Default is the internal alert descriptor ID to identify rejected orders from Order Management",
+                    "default-value": "SOMRejectAlert"
+                }, {
+                    "@name": "EmailTo",
+                    "@type": "string",
+                    "@required": "true",
+                    "@trim": "true",
+                    "description": "List of comma-separated (,) email to"
+                }, {
+                    "@name": "EmailFrom",
+                    "@type": "string",
+                    "@required": "true",
+                    "@trim": "true",
+                    "description": "Email from to be used when sending the email",
+                    "default-value": "noreply@salesforce.com"
+                }, {
+                    "@name": "EmailSubject",
+                    "@type": "string",
+                    "@required": "true",
+                    "@trim": "true",
+                    "description": "Email subject to be used when sending the email",
+                    "default-value": "{0} - Salesforce Order Management Injestion - Order(s) rejected"
+                }, {
+                    "@name": "DeleteAlerts",
+                    "description": "Delete alerts once the email has been sent",
+                    "@type": "boolean",
+                    "@required": "true",
+                    "@trim": "true"
+                }]
+            },
+            "status-codes": {
+                "status": [{
+                    "@code": "ERROR",
+                    "description": "Used when the step failed with an error."
+                },
+                {
+                    "@code": "OK",
+                    "description": "Used when the step finished successfully."
+                }]
+            }
+        }]
+    }
+}
